@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "homepage": "javacup.io",
+  "authors": [
+    "chris@javacup.io"
+  ],
+  "description": "My personal website, yay.",
+  "main": "index.html",
+  "keywords": [
+    "personal",
+    "chris",
+    "java",
+    "cup"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.7",
+    "font-awesome": "fontawesome#^4.6.3",
+    "lodash": "^4.13.1",
+    "jquery": "^3.0.0",
+    "angular-animate": "^1.5.7",
+    "modernizr": "^3.3.1"
+  }
+}

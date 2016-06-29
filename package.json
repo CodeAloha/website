@@ -1,0 +1,19 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "My personal websites, server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavaStocks/website.git"
+  },
+  "author": "Christopher Wheeler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JavaStocks/website/issues"
+  },
+  "homepage": "https://github.com/JavaStocks/website#readme"
+}
