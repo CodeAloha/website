@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" ng-app="johnsonApp">
+<html lang="en" ng-app="websiteApp">
 <head>
     <meta charset="utf-8">
 
@@ -14,35 +14,45 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
-    <article class="section">
-        <div class="aligned">
-            <h1>Hello</h1>
-            <h2>Hello</h2>
-            <h3>Hello</h3>
-            <h4>Hello</h4>
-            <h5>Hello</h5>
-            <h6>Hello</h6>
-            <button>Hello</button>
+<body  ng-controller="NavigationController">
+    <div class="menu" ng-class="{ 'collapsed': navigation.toggled }">
+        <ul>
+            <li ng-repeat="link in links"><span ng-class="{'fadeIn': link.visible }">{{ link.name }}</span></li>
+        </ul>
+    </div>
+    <div class="app" ng-class="{ 'collapsed': navigation.toggled  }">
+        <div class="navigation">
+            <div class="hamburger" ng-click="toggleNavigation()"></div>
+
+            <button class="right">Donate</button>
         </div>
-    </article>
-    <article class="section">
-        <div class="aligned">
-            <h1>Hello</h1>
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-        </div>
-    </article>
+        <article class="section">
+            <div class="aligned">
+                <h1>Hello</h1>
+                <h2>Hello</h2>
+                <h3>Hello</h3>
+                <h4>Hello</h4>
+                <h5>Hello</h5>
+                <h6>Hello</h6>
+            </div>
+        </article>
+        <article class="section">
+            <div class="aligned">
+                <h1>Hello</h1>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+            </div>
+        </article>
+    </div>
 
     <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script type="text/javascript" src="bower_components/modernizr/modernizr.js"></script>
 
     <!--JQuery / UI Components-->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="js/jquery.serializejson.min.js"></script>-->
-    <!--<script type="text/javascript" src="bower_components/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>-->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/dist/jquery.serializejson.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

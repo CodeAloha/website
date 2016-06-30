@@ -1,1 +1,0 @@
-$('body').css('opacity', 0.3);

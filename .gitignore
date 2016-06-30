@@ -19,3 +19,5 @@ node_modules
 css/main.css
 /js/main.js
 js/main.js
+/js/main-min.js
+js/main-min.js
