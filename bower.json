@@ -19,6 +19,7 @@
     "font-awesome": "fontawesome#^4.6.3",
     "lodash": "^4.13.1",
     "jquery": "^3.0.0",
-    "angular-animate": "^1.5.7"
+    "angular-animate": "^1.5.7",
+    "angular-route": "^1.5.7"
   }
 }

@@ -27,15 +27,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; padding: 0; margin:0; }
 ul, li { color: inherit; text-decoration: none; padding:0; margin:0; }
 h1 { font-size: 2em; }
 p { margin: 2em 0 2em 0; padding:0; line-height: 1.5em; }
-div {
-  @include box-sizing(border-box); }
+div { @include box-sizing(border-box); }
 a { color: #333; }
 
 .app {
   position: relative;
   overflow: hidden;
   left:0;
-  top:0;
+  top: 0;
   @include transition(left 0.5s);
 
   &.collapsed {

@@ -1,0 +1,67 @@
+
+.col-3  { box-sizing: border-box; float: left; width: 25%;  }
+.col-4  { box-sizing: border-box; float: left; width: 33.333333333333%; }
+.col-6  { box-sizing: border-box; float: left; width: 50%;  }
+.col-8  { box-sizing: border-box; float: left; width: 66.666666666666%; }
+.col-9  { box-sizing: border-box; float: left; width: 75%;  }
+.col-12 { box-sizing: border-box; float: left; width: 100%; }
+
+.offset-content { z-index: 1000; position: relative; overflow: hidden; border-radius: 3px; width: 100%; max-width: 500px;  margin: 1em 3em;}
+
+.offset-content .donation-box { background: #eee; text-align: center; }
+
+.offset-content .donation-box .banner { font-weight: 500; font-size: 1.25em; background: #020553; color: white; padding: 1em 2em; }
+
+.donation-box .content-box { padding: 1.5em; -webkit-transition: max-height 1s;  -moz-transition: max-height 1s;  -ms-transition: max-height 1s;  -o-transition: max-height 1s;  transition: max-height 1s;  }
+.donation-box .content-box { -webkit-transition: max-height 1s;  -moz-transition: max-height 1s;  -ms-transition: max-height 1s;  -o-transition: max-height 1s;  transition: max-height 1s;   }
+
+.donation-box .content-box .error-box          { transition: all 0.4s ease; -webkit-transition: all 0.4s ease; opacity: 1; overflow: hidden; height: 2.75em; padding: 0.5em 1em; margin: 0 0.5em 0.5em 0; border: 1px solid red; background: #faa; color: white; border-radius: 3px; }
+.donation-box .content-box .error-box.collapse { transition: all 0.4s ease; -webkit-transition: all 0.4s ease; height: 0; padding: 0; opacity: 0; }
+
+.donation-box .content-box .screen-box  { position: relative; height: 22em; }
+
+.donation-box .content-box .screen      { position: absolute; opacity: 0;margin: 1.5em 0; width: 100%;  transition: opacity 0.4s ease; -webkit-transition: opacity 0.4s ease; margin: 1.5em 0; width: 100%; }
+.donation-box .content-box .screen.show { opacity: 1; transition: opacity 0.4s ease; -webkit-transition: opacity 0.4s ease; margin: 1.5em 0; width: 100%; }
+.donation-box .content-box .screen.conceal { opacity: 0; transition: opacity 0.4s ease; -webkit-transition: opacity 0.4s ease; margin: 1.5em 0; width: 100%; }
+.donation-box .content-box .screen.ng-show { opacity: 1; transition: opacity 0.4s ease; -webkit-transition: opacity 0.4s ease; margin: 1.5em 0; width: 100%; }
+.donation-box .content-box .screen.ng-leave { opacity: 0; transition: opacity 0.4s ease; -webkit-transition: opacity 0.4s ease; margin: 1.5em 0; width: 100%; }
+
+
+.donation-box .content-box .screen .collapsible-box           { overflow: hidden; height: 4em; -webkit-transition: height 0.4s;  -moz-transition: height 0.4s;  -ms-transition: height 0.4s;  -o-transition: height 0.4s;  transition: height 0.4s; }
+.donation-box .content-box .screen .collapsible-box.collapse  { height:0;     -webkit-transition: height 0.4s;  -moz-transition: height 0.4s;  -ms-transition: height 0.4s;  -o-transition: height 0.4s;  transition: height 0.4s; }
+
+.donation-box .content-box p      { margin: 0 0 1em 0; }
+.donation-box .content-box .steps { font-weight: 500; }
+
+.donation-box .content-box select.pill { height: 3.25em; }
+.donation-box .content-box .pill { height: auto; border-radius: 3px;font-weight: 500; padding: 1em 1.25em; margin: 0.5em;  }
+.donation-box .content-box .pill.error { border: 1px solid #ff3d00; }
+.donation-box .content-box .pill.button { cursor: pointer; background: #ccc; color: #333;  }
+
+.donation-box .content-box input, .donation-box .content-box select  {  background: white;  outline: none;  width: calc(100% - 1em);  box-sizing: border-box;  border: 1px solid rgba(255,255,255, 0);  font-size: 1em;  }
+.donation-box .content-box .terms {  text-align: left; padding: 0 1em;  line-height: 1.25em;  font-weight: 500;  font-size: 0.725em;  }
+
+.donation-box .content-box .screen.followup ul.social-interactions li { display: inline-block; }
+
+
+.donation-box .content-box button       {     height: 3.5em; -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s;font-weight: 500; letter-spacing: 1px; color: white; margin-top: 1.75em; background: #252a8c; font-size: 1em; cursor: pointer; width: calc(100% - 1em); padding: 1em 2em; text-align: center; outline: none; box-sizing: border-box; border: none; border-radius: 3px; }
+.donation-box .content-box button:hover { -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s; background: #03097c; }
+.donation-box .content-box button.hide  { -webkit-transition: height 0.3s;  -moz-transition: height 0.3s;  -ms-transition: height 0.3s;  -o-transition: height 0.3s;  transition: height 0.3s; height: 0; }
+
+
+/*===================================
+============= Utilities =============
+===================================*/
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
