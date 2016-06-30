@@ -6,13 +6,16 @@ ssh.pem
 .idea/*
 .sublime
 nbproject
-
-/bower_components/*
-
 npm-debug.log
 *.log
+
+/bower_components/*
+bower_components/*
+
+/node_modules
 node_modules
-dist
 
 /css/main.css
+css/main.css
 /js/main.js
+js/main.js
