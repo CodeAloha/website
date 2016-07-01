@@ -25,5 +25,6 @@ gulp.task('js', function() {
 
 gulp.task('run', function () {
     // Endless stream mode
+    gulp.run('sass', 'js');
     gulp.watch([ './css/sass/*.scss', './js/dist/*.js' ], ['sass', 'js']);
 });
