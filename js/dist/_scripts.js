@@ -1,10 +1,12 @@
+'use strict';
+
 var navigation = [
-    { id: "name",    name: "Home"    },
-    { id: "about",   name: "About"   },
-    { id: "stocks",  name: "Stocks"  },
-    { id: "tech",    name: "Tech"    },
-    { id: "blog",    name: "Blog"    },
-    { id: "contact", name: "Contact" }
+    { id: "home",    url: "/",        name: "Home"    },
+    { id: "about",   url: "/about",   name: "About"   },
+    { id: "stocks",  url: "/stocks",  name: "Stocks"  },
+    { id: "tech",    url: "/tech",    name: "Tech"    },
+    { id: "blog",    url: "/blog",    name: "Blog"    },
+    { id: "contact", url: "/contact", name: "Contact" }
 ];
 
 var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
@@ -12,15 +14,20 @@ var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
         function($routeProvider, $locationProvider) {
 
             _.each(navigation, function(nav) {
-                $routeProvider.when('/' + nav.id, {
-                    templateUrl:  './views/' + nav.id   + '.html',
+                $routeProvider.when(nav.url, {
+                    templateUrl:  'website/views/' + nav.id   + '.html',
                     controller:   nav.name + 'Controller',
                     controllerAs: nav.id
                 });
             });
-            $routeProvider.otherwise({ redirectTo:'/' });
+            $routeProvider.otherwise({ redirectTo: '/' });
 
-            $locationProvider.html5Mode(true);
+
+
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
         }]);
 
 app.controller('NavigationController', function NavigationController($scope, $timeout) {

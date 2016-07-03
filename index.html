@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
+    <!--<base href="/">-->
 
 </head>
 <body  ng-controller="NavigationController">
     <div class="menu" ng-class="{ 'collapsed': navigation.toggled }">
         <ul>
-            <li ng-repeat="link in links"><span ng-class="{'fadeIn': link.visible }">{{ link.name }}</span></li>
+            <a href="/{{ link.id }}/" ng-repeat="link in links">
+                <li><span ng-class="{'fadeIn': link.visible }">{{ link.name }}</span></li>
+            </a>
         </ul>
     </div>
     <div class="app" ng-class="{ 'collapsed': navigation.toggled  }">
@@ -23,23 +26,8 @@
 
             <button class="right">Donate</button>
         </div>
-        <article class="section">
-            <div class="aligned">
-                <h1>Hello</h1>
-                <h2>Hello</h2>
-                <h3>Hello</h3>
-                <h4>Hello</h4>
-                <h5>Hello</h5>
-                <h6>Hello</h6>
-            </div>
-        </article>
-        <article class="section">
-            <div class="aligned">
-                <h1>Hello</h1>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-            </div>
-        </article>
+
+        <div ng-view></div>
     </div>
 
     <!--Angular-->
@@ -55,10 +43,10 @@
     <script type="text/javascript" src="js/main.js"></script>
 
     <!--Payment Processing-->
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script>
-        Stripe.setPublishableKey('pk_test_ra0kwVD2DRCJszaGFIbVWyPM');
-    </script>
+    <!--<script type="text/javascript" src="https://js.stripe.com/v2/"></script>-->
+    <!--<script>-->
+        <!--Stripe.setPublishableKey('pk_test_ra0kwVD2DRCJszaGFIbVWyPM');-->
+    <!--</script>-->
 
 </body>
 </html>
