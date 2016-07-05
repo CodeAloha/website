@@ -1,13 +1,13 @@
 'use strict';
 
 var navigation = [
-    { id: "home",    url: "/",        name: "Home"    },
-    { id: "about",   url: "/about",   name: "About"   },
-    { id: "stocks",  url: "/stocks",  name: "Stocks"  },
-    { id: "tech",    url: "/tech",    name: "Tech"    },
-    { id: "blog",    url: "/blog",    name: "Blog"    },
-    { id: "contact", url: "/contact", name: "Contact" }
+    { id: "home",    url: "/",         name: "Home"     },
+    { id: "about",   url: "/about",    name: "About"    },
+    { id: "stocks",  url: "/stocks",   name: "Stocks"   },
+    { id: "projects",url: "/projects", name: "Projects" },
+    { id: "contact", url: "/contact",  name: "Contact"  }
 ];
+
 
 var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
     .config(['$routeProvider', '$locationProvider',
@@ -22,15 +22,13 @@ var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
             });
             $routeProvider.otherwise({ redirectTo: '/' });
 
-
-
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
             });
         }]);
 
-app.controller('NavigationController', function NavigationController($scope, $timeout) {
+app.controller('NavigationController', function NavigationController($scope, $timeout, $location) {
 
     $scope.links = navigation;
 
@@ -53,8 +51,13 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
 
             scatteredAnimation();
-
         }
 
-    }
+    };
+
+    $scope.redirectTo = function redirectTo(link) {
+        $location.url(link);
+        console.log(link);
+        $scope.toggleNavigation();
+    };
 });

@@ -15,14 +15,16 @@
 <body  ng-controller="NavigationController">
     <div class="menu" ng-class="{ 'collapsed': navigation.toggled }">
         <ul>
-            <a href="/{{ link.id }}/" ng-repeat="link in links">
-                <li><span ng-class="{'fadeIn': link.visible }">{{ link.name }}</span></li>
-            </a>
+            <li ng-click="redirectTo(link.id)" ng-repeat="link in links">
+                <span ng-class="{'fadeIn': link.visible }">{{ link.name }}</span>
+            </li>
         </ul>
     </div>
     <div class="app" ng-class="{ 'collapsed': navigation.toggled  }">
         <div class="navigation">
             <div class="hamburger" ng-click="toggleNavigation()"></div>
+
+            JavaStocks
 
             <button class="right">Donate</button>
         </div>

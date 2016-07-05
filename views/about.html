@@ -1,1 +1,67 @@
-Hello World.
+<div class="about" ng-controller="AboutController">
+
+    <article class="section header">
+        <div class="aligned">
+            <div class="vertical-center">
+                <div class="profile left">
+                    <img src="website/assets/image/profile.png" />
+                </div>
+                <div class="information">
+                    <h1>Christopher Wheeler</h1>
+                    <p>
+                        Full stack engineer, Entrepreneur, Investor,<br/>
+                        Explorer and the occasional day trader.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="section">
+        <div class="aligned">
+
+            <h1>Biography</h1>
+
+            <p>Hello my name is Chris.</p>
+
+            <p>
+                My background includes working in companies that focused in Product Development and Creative Website Development.
+                I have several years of experience with working with the entire stack, end to end. Especially with Front-End User Interface Design and within those years came a meticulous attention to detail.
+                I absolutely pride myself in my work and work ethic. I am ambitious and I always take personal interest in spending my own personal time to improve my capabilities to update myself with the most recent cutting-edge technologies.
+            </p>
+            <p>
+                With my background in working with advertising agencies, I take a very pragmatic approach to the layout design.
+                I feel numbers always come first. Based on website metrics and performance I will provide a variety of solutions that yield an improvement for conversions.
+                In the end after all of the practicalities I will find a way to make the end result aesthetically beautiful yet functional.
+                The key to my work ethic is to keep things simple, and to never over complicate any part of my design process.
+            </p>
+
+        </div>
+    </article>
+
+    <article class="section">
+        <div class="aligned">
+
+            <h1>Technology Competencies</h1>
+
+            <p>I build beautiful things.</p>
+
+            <p>
+                Devoted creative and functional Full-Stack web developer (MEAN/LAMP) with experience in a variety of development principals while merging creative ideas in the process.
+            </p>
+
+            <ul class="competencies" ng-repeat="(title,competency) in competencies">
+                <h2>{{ title }}</h2>
+
+                <span ng-repeat="(key, level) in competency">
+
+                   <li class="{{ key }}" ng-repeat="skill in level">
+                       {{ skill }}
+                   </li>
+                </span>
+            </ul>
+
+        </div>
+    </article>
+
+</div>

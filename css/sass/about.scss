@@ -1,0 +1,37 @@
+.about {
+
+  @include after-clearfix();
+
+  article.section.header {
+
+    .profile {
+      width:  120px;
+      height: 120px;
+      border-radius: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+
+  ul {
+    margin: 2em 0;
+    h2 { margin-bottom: 1em; }
+
+    li {
+      border-radius: 3px;
+      margin: 0.25em 0.5em 0.25em 0;
+      list-style: none;
+      display: inline-block;
+      padding: 0.5em 1em;
+
+      background: #ddffdd; border: 1px solid #aaffaa;
+      &.worked   { background: #ffffdd; border: 1px solid #ffff55; }
+      &.outdated { background: #ffdddd; border: 1px solid #ffaaaa; }
+    }
+  }
+
+
+}
