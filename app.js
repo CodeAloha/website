@@ -17,10 +17,7 @@ var router = express.Router({
     caseSensitive: app.get('case sensitive routing'),
     strict       : app.get('strict routing')
 });
-
-// connect to our mongoDB database 
-// (uncomment after you enter in your own credentials in config/db.js)
-// mongoose.connect(db.url); 
+// mongoose.connect(db.url);
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 

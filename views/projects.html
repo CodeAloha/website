@@ -6,4 +6,22 @@
             </div>
         </div>
     </article>
+
+    <article class="section">
+        <div class="aligned">
+
+            <ul class="project-list">
+                <li class="col-4" ng-repeat="project in projects">
+                    <div class="box">
+                        <a href="{{ project.link }}"><img ng-src="{{ project.image }}" /></a>
+                        <div class="box-content">
+                            <h3>{{ project.name }}</h3>
+                            <span>{{ project.description }}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </article>
 </div>
