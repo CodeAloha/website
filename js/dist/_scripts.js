@@ -15,17 +15,14 @@ var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
 
             _.each(navigation, function(nav) {
                 $routeProvider.when(nav.url, {
-                    templateUrl:  'website/views/' + nav.id   + '.html',
+                    templateUrl:  '/views/' + nav.id   + '.html',
                     controller:   nav.name + 'Controller',
                     controllerAs: nav.id
                 });
             });
             $routeProvider.otherwise({ redirectTo: '/' });
 
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-            });
+            $locationProvider.html5Mode(true);
         }]);
 
 app.controller('NavigationController', function NavigationController($scope, $timeout, $location) {
