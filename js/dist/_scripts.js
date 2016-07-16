@@ -31,12 +31,14 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
     $scope.navigation = { toggled: false, isAnimating: false, currentTab: "home" };
 
+    var numberOfLinks = $scope.links.length;
     $scope.toggleNavigation = function toggleNavigation() {
         function scatteredAnimation() {
             _.each($scope.links, function(link, i) {
                 $timeout(function() {
                     link.visible = $scope.navigation.toggled;
-                    if (i === 5) { $scope.navigation.isAnimating = false; }
+                    console.log(numberOfLinks);
+                    if (i === (numberOfLinks - 1)) { console.log('canceling'); $scope.navigation.isAnimating = false; }
                 }, i * 100);
             });
         }
