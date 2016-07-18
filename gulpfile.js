@@ -25,14 +25,11 @@ gulp.task('js', function() {
 
 gulp.task('run', function () {
     nodemon({
-        // the script to run the app
         script: 'app.js',
-        // this listens to changes in any of these files/routes and restarts the application
         watch: ["routes.js", "app.js", "views/*", 'js/dist/*', 'css/sass/*'],
         ext: 'html js scss'
     }).on('restart', function() {
         gulp.src('app.js');
-        // I've added notify, which displays a message on restart. Was more for me to test so you can remove this
         gulp.run('sass', 'js');
     });
 
