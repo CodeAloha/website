@@ -2,8 +2,7 @@ app.controller('ProjectsController', function($scope) {
     $scope.projects = [
         {
             name: 'World Map',
-            description: 'Developed an interactive map for Prudential Locations to display active and anticipated developments through their website.',
-
+            description: 'World Map Visualization using WebGL.',
             image: 'assets/image/projects/pru.png',
             link: ''
         },
@@ -15,8 +14,9 @@ app.controller('ProjectsController', function($scope) {
             link: ''
         },
         {
-            name: 'Prudential Interactive Map',
-            description: 'World Map Visualization using WebGL.',
+            name: 'Interactive Map',
+            description: 'Developed an interactive map for Prudential Locations to display active and anticipated developments through their website.',
+
             image: 'assets/image/projects/pru.png',
             link: ''
         },

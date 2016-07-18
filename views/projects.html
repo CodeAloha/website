@@ -2,7 +2,11 @@
     <article class="section header">
         <div class="aligned">
             <div class="vertical-center">
-                <h1>Personal Projects</h1>
+                <h1>Interesting Projects</h1>
+                <p>
+                    Projects I've worked on over the years, either on my own personal time <br/>
+                    or through my professional career.
+                </p>
             </div>
         </div>
     </article>
@@ -16,7 +20,7 @@
                         <a href="{{ project.link }}"><img ng-src="{{ project.image }}" /></a>
                         <div class="box-content">
                             <h3>{{ project.name }}</h3>
-                            <span>{{ project.description }}</span>
+                            <div class="scrolling-container">{{ project.description }}</div>
                         </div>
                     </div>
                 </li>
