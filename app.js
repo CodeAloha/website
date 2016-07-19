@@ -11,7 +11,7 @@ var methodOverride = require('method-override');
 
 
 // set our port
-var port = process.env.PORT || 3002;
+var port = process.env.PORT || 3000;
 
 var router = express.Router({
     caseSensitive: app.get('case sensitive routing'),
