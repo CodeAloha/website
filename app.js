@@ -20,15 +20,8 @@ var router = express.Router({
 // mongoose.connect(db.url);
 
 // get all data/stuff of the body (POST) parameters
-// parse application/json
+// parse application/json 
 app.use(bodyParser.json());
-
-app.set('port_https', 3443); // make sure to use the same port as above, or better yet, use the same variable
-// Secure traffic only
-app.all('*', function(req, res, next) {
-        if (req.secure) { return next(); }
-        res.redirect('https://' + req.hostname+ ':' + app.get('port_https') + req.url);
-    });
 
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
@@ -51,10 +44,15 @@ require('./routes')(app); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-app.listen(port);
 
-// shoutout to the user                     
-console.log('Running the server at port: ' + port);
+//
+//// expose app
+//exports = module.exports = app;
 
-// expose app           
-exports = module.exports = app;
+var ssl = {
+    key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
+};
+
+https.createServer(ssl, app).listen(port);
