@@ -3,8 +3,10 @@
 // modules =================================================
 var express        = require('express');
 var app            = express();
+var fs             = require('fs');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+
 
 // configuration ===========================================
 
