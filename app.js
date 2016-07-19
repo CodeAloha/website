@@ -23,6 +23,13 @@ var router = express.Router({
 // parse application/json
 app.use(bodyParser.json());
 
+app.set('port_https', 3443); // make sure to use the same port as above, or better yet, use the same variable
+// Secure traffic only
+app.all('*', function(req, res, next) {
+        if (req.secure) { return next(); }
+        res.redirect('https://' + req.hostname+ ':' + app.get('port_https') + req.url);
+    });
+
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
