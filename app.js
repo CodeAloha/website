@@ -56,10 +56,10 @@ require('./routes')(app); // configure our routes
 http.createServer(function(req, res) {
     res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
     res.end();
-}).listen(3001);
+}).listen(3000);
 
 https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
     ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
-}, app).listen(3000);
+}, app).listen(443);
