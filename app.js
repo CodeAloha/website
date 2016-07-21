@@ -59,9 +59,9 @@ http.createServer(function(req, res) {
 }).listen(80);
 
 https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
+    key: fs.readFileSync("/etc/letsencrypt/archive/javacup.io/privkey1.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/archive/javacup.io/fullchain1.pem"),
+    ca: fs.readFileSync("/etc/letsencrypt/archive/javacup.io/chain1.pem")
 }, app).listen(443);
 
 app.listen(port);
