@@ -31,11 +31,11 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 var root = '/';
 
-app.use(root + 'js', express.static(__dirname + '/website/js', { redirect : false }));
-app.use(root + 'bower_components', express.static(__dirname + '/website/bower_components', { redirect : false }));
-app.use(root + 'css', express.static(__dirname + '/website/css', { redirect : false }));
-app.use(root + 'views', express.static(__dirname + '/website/views' , { redirect : false }));
-app.use(root + 'assets', express.static(__dirname + '/website/assets', { redirect : false }));
+app.use(root + 'js', express.static(__dirname + 'website/js', { redirect : false }));
+app.use(root + 'bower_components', express.static(__dirname + '/bower_components', { redirect : false }));
+app.use(root + 'css', express.static(__dirname + '/css', { redirect : false }));
+app.use(root + 'views', express.static(__dirname + '/views' , { redirect : false }));
+app.use(root + 'assets', express.static(__dirname + '/assets', { redirect : false }));
 
 
 // routes ==================================================
