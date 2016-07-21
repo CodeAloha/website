@@ -1,5 +1,15 @@
 'use strict';
 
+
+function forceHTTPS() {
+    var url      = window.location.href;
+    var segments = url.split('/');
+    var protocol = segments[0];
+    if (protocol === 'http') {
+        window.location = 'https://javacup.io';
+    }
+}
+
 var navigation = [
     { id: "home",    url: "/",         name: "Home"     },
     { id: "about",   url: "/about",    name: "About"    },
