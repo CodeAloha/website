@@ -3,12 +3,11 @@
 forceHTTPS();
 function forceHTTPS() {
     var url      = window.location.href;
-    var segments = url.split('/');
+    var segments = url.split(':');
     var protocol = segments[0];
     if (protocol === 'http') {
         window.location = 'https://javacup.io';
     }
-    console.log(protocol);
 }
 
 var navigation = [
