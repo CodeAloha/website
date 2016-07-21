@@ -43,7 +43,6 @@ require('./routes')(app); // configure our routes
 
 
 //app.listen(port);
-//exports = module.exports = app;
 https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),

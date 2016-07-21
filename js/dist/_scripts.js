@@ -5,7 +5,7 @@ function forceHTTPS() {
     var url      = window.location.href;
     var segments = url.split(':');
     var protocol = segments[0];
-    if (protocol === 'http') {
+    if (protocol === 'http' && url.indexOf('localhost') < -1) {
         window.location = 'https://javacup.io';
     }
 }
@@ -66,7 +66,6 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
     $scope.redirectTo = function redirectTo(link) {
         $location.url(link);
-        console.log(link);
         $scope.toggleNavigation();
     };
 });
