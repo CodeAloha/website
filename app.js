@@ -4,6 +4,8 @@
 var express        = require('express');
 var app            = express();
 var fs             = require('fs');
+var http           = require('http');
+var https          = require('https');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
@@ -50,5 +52,16 @@ require('./routes')(app); // configure our routes
 //
 //// expose app
 //exports = module.exports = app;
+
+http.createServer(function(req, res) {
+    res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
+    res.end();
+}).listen(80);
+
+https.createServer({
+    key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
+}, app).listen(443);
 
 app.listen(port);
