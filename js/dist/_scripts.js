@@ -8,6 +8,7 @@ function forceHTTPS() {
     if (protocol === 'http') {
         window.location = 'https://javacup.io';
     }
+    console.log(protocol);
 }
 
 var navigation = [
