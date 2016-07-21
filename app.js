@@ -29,13 +29,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-var root = '/';
-
-app.use(root + 'js', express.static(__dirname + 'website/js', { redirect : false }));
-app.use(root + 'bower_components', express.static(__dirname + '/bower_components', { redirect : false }));
-app.use(root + 'css', express.static(__dirname + '/css', { redirect : false }));
-app.use(root + 'views', express.static(__dirname + '/views' , { redirect : false }));
-app.use(root + 'assets', express.static(__dirname + '/assets', { redirect : false }));
+app.use('/js', express.static(__dirname +  '/js', { redirect : false }));
+app.use('/bower_components', express.static(__dirname + '/bower_components', { redirect : false }));
+app.use('/css', express.static(__dirname + '/css', { redirect : false }));
+app.use('/views', express.static(__dirname + '/views' , { redirect : false }));
+app.use('/assets', express.static(__dirname + '/assets', { redirect : false }));
 
 
 // routes ==================================================
@@ -43,6 +41,9 @@ require('./routes')(app); // configure our routes
 
 // start app ===============================================
 
+
+//app.listen(port);
+//exports = module.exports = app;
 https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
