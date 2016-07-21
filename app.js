@@ -17,9 +17,6 @@ var methodOverride = require('method-override');
 // set our port
 var port = process.env.PORT || 3000;
 
-// mongoose.connect(db.url);
-
-// get all data/stuff of the body (POST) parameters
 // parse application/json 
 app.use(bodyParser.json());
 
@@ -32,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-var root = '/website/';
+var root = '/';
 
 app.use(root + 'js', express.static(__dirname + '/js', { redirect : false }));
 app.use(root + 'bower_components', express.static(__dirname + '/bower_components', { redirect : false }));
@@ -45,12 +42,6 @@ app.use(root + 'assets', express.static(__dirname + '/assets', { redirect : fals
 require('./routes')(app); // configure our routes
 
 // start app ===============================================
-// startup our app at http://localhost:8080
-
-//
-//// expose app
-//exports = module.exports = app;
-
 
 https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
