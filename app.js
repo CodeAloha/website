@@ -63,5 +63,3 @@ https.createServer({
     cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
     ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
 }, app).listen(3000);
-
-app.listen(port);
