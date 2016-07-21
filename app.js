@@ -5,7 +5,6 @@ var express        = require('express');
 var app            = express();
 var fs             = require('fs');
 var bodyParser     = require('body-parser');
-var https          = require('https');
 var methodOverride = require('method-override');
 
 
@@ -52,4 +51,4 @@ require('./routes')(app); // configure our routes
 //// expose app
 //exports = module.exports = app;
 
-https.createServer(app).listen(port);
+app.listen(port);
