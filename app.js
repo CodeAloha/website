@@ -17,10 +17,6 @@ var methodOverride = require('method-override');
 // set our port
 var port = process.env.PORT || 3000;
 
-var router = express.Router({
-    caseSensitive: app.get('case sensitive routing'),
-    strict       : app.get('strict routing')
-});
 // mongoose.connect(db.url);
 
 // get all data/stuff of the body (POST) parameters
@@ -53,13 +49,9 @@ require('./routes')(app); // configure our routes
 //// expose app
 //exports = module.exports = app;
 
-http.createServer(function(req, res) {
-    res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
-    res.end();
-}).listen(3000);
 
 https.createServer({
     key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
     ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
-}, app).listen(443);
+}, app).listen(port);
