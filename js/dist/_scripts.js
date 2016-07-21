@@ -1,6 +1,6 @@
 'use strict';
 
-
+forceHTTPS();
 function forceHTTPS() {
     var url      = window.location.href;
     var segments = url.split('/');
