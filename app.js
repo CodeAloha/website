@@ -42,9 +42,9 @@ require('./routes')(app); // configure our routes
 // start app ===============================================
 
 
-//app.listen(port);
-https.createServer({
-    key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
-}, app).listen(port);
+app.listen(port);
+//https.createServer({
+//    key: fs.readFileSync('/etc/letsencrypt/live/javacup.io/privkey.pem'),
+//    cert: fs.readFileSync('/etc/letsencrypt/live/javacup.io/fullchain.pem'),
+//    ca: fs.readFileSync('/etc/letsencrypt/live/javacup.io/chain.pem')
+//}, app).listen(port);
