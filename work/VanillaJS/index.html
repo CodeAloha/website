@@ -1,0 +1,140 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Hall Front-End Challenge</title>
+  <meta name="description" content="Hall's Front-End VanillaJS Torture Challenge">
+  <meta name="author" content="Christopher Wheeler">
+
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0" />
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+  <!--[if lt IE 9]>
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+	<img class="logo" src="assets/img/logo.png" />
+	<i id="collapse-nav" class="fa fa-bars display-nav"></i>
+	<nav id="collapse-panel">
+		<ul class="header-navigation">
+			<a id="generate-contact">
+				<li>Generate Sample</li>
+			</a>
+			<a id="new-contact">
+				<li>New Contact</li>
+			</a>
+			<a id="import">
+				<li>Import</li>
+			</a>
+			<a id="export">
+				<li>Export</li>
+			</a>
+		</ul>
+	</nav>
+  </header>
+
+  <div class="container">
+  	<div id="import-pane">
+  		<div class="card space-12">
+  			<div class="close">&times;</div>
+	  		<div id="warn-json" class="notification">
+	  			<i class="fa fa-warning"></i>&nbsp;
+	  			Unable to parse JSON String, Invalid JSON Provided.
+	  		</div>
+	  		<h3>IMPORT Contacts</h3>
+	  		<textarea id="jsondata" placeholder="Enter JSON Data here."></textarea>
+
+		  	<button class="action-pane-submit-button" id="import-contact">
+		  		<i class="fa fa-download"></i>&nbsp;IMPORT CONTACTS
+		  	</button>
+	  	</div>
+  	</div>
+	<div id="action-pane">
+		<div class="card space-12">
+			<div class="close">&times;</div>
+	  		<div id="warn-json" class="notification">
+	  			<i class="fa fa-warning"></i>&nbsp;
+	  			Unable to parse JSON String, Invalid JSON Provided.
+	  		</div>
+			<h3>Create New Contact</h3>
+		  	<div class="row">
+		  		<div class="col-6">
+		  			<div class="space-6">
+		  				<input id="fname" placeholder="First Name" type="text" />
+		  			</div>
+		  		</div>
+		  		<div class="col-6">
+		  			<div class="space-6">
+		  				<input id="lname" placeholder="Last Name" type="text" />
+		  			</div>
+		  		</div>
+		  		<div class="col s12">
+		  			<div class="space-6">
+		  				<input id="email" placeholder="Email" type="text" />
+		  			</div>
+		  		</div>
+		    		<div class="col s12">
+		  			<div class="space-6">
+		  				<input id="phone" placeholder="Phone" type="text" />
+		  			</div>
+		  		</div>
+		    		<div class="col s12">
+		  			<div class="space-6">
+		  				<input id="imgurl" placeholder="Profile Image URL" type="text" />
+		  			</div>
+		  		</div>
+
+		    		<div class="col-3">
+		  			<div class="space-6">
+		  				<input id="facebook" placeholder="Facebook" type="text" />
+		  			</div>
+		  		</div>
+		    		<div class="col-3">
+		  			<div class="space-6">
+		  				<input id="twitter" placeholder="Twitter" type="text" />
+		  			</div>
+		  		</div>
+		    		<div class="col-3">
+		  			<div class="space-6">
+		  				<input id="skype" placeholder="Skype" type="text" />
+		  			</div>
+		  		</div>
+		    		<div class="col-3">
+		  			<div class="space-6">
+		  				<input id="github" placeholder="GitHub" type="text" />
+		  			</div>
+		  		</div>
+		  	</div>
+
+	    		<div class="col s12">
+	  			<div class="space-6">
+				  	<button class="action-pane-submit-button" id="create-contact">
+				  		<i class="fa fa-plus"></i>&nbsp;CREATE CONTACT
+				  	</button>
+				 </div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<article id="content-feed" class="row"></article>
+	<div class="clear"></div>
+	<div id="console" class="console">Tracking Event...</div>
+  </div>
+
+  <footer>
+  	<div class="content">
+  	Designed by Christopher Wheeler, for Hall Coding Challenge.
+  	</div>
+  </footer>
+  <script src="assets/js/contact_card.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/js/events.js"></script>
+
+</body>
+</html>
