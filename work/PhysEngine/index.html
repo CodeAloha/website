@@ -3,11 +3,11 @@
     <title>CoffeePhysics</title>
     <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
 	
-    <script language="javascript">
-	document.addEventListener("contextmenu", function(e){
-	    e.preventDefault();
-	}, false);
-    </script>
+    <!--<script language="javascript">-->
+	<!--document.addEventListener("contextmenu", function(e){-->
+	    <!--e.preventDefault();-->
+	<!--}, false);-->
+    <!--</script>-->
 	
     <style type="text/css" media="screen">
 
@@ -17,11 +17,6 @@
             margin: 0;
         }
 
-        .stats {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
 
         #content {
             position: absolute;
@@ -134,7 +129,6 @@
 
     <!-- Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://cdn.iamwebdeveloper.in/js/stats.js/r11/Stats.js"></script>
     <!-- Core -->
     <script src="compiled/base.js"></script>
     <script src="compiled/math/Random.js"></script>
@@ -185,7 +179,6 @@
 
             var list;
             var demo;
-            var stats;
             var items;
             var playing;
             var demoName;
@@ -198,7 +191,6 @@
             function init() {
 
                 items = {};
-                stats = new Stats();
                 list = $('#demo-select');
                 playing = true;
                 renderer = 'WebGLRenderer';
@@ -218,9 +210,6 @@
                     list.append(item);
                 }
 
-                // Append stats.
-                stats.domElement.className = 'stats';
-                document.body.appendChild(stats.domElement);
 
                 $renderer.click(onRendererSelected);
                 $(window).bind('keydown', onKeyDown);
@@ -256,7 +245,6 @@
                     demo.step();
                 }
 
-                stats.update();
             }
 
             // Sets the current demo.
