@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use('/js', express.static(__dirname +  '/js', { redirect : false }));
+app.use('/work', express.static(__dirname +  '/work', { redirect : false }));
 app.use('/bower_components', express.static(__dirname + '/bower_components', { redirect : false }));
 app.use('/css', express.static(__dirname + '/css', { redirect : false }));
 app.use('/views', express.static(__dirname + '/views' , { redirect : false }));
