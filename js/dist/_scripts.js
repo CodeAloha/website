@@ -35,6 +35,15 @@ var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
             $locationProvider.html5Mode(true);
         }]);
 
+$(window).on('scroll', _.throttle(parallax, 10));
+
+function parallax() {
+    var scroll = $(window).scrollTop();
+    $('.header .background-mask').css({
+        top: -(scroll * 2)
+    });
+}
+
 app.controller('NavigationController', function NavigationController($scope, $timeout, $location) {
 
     $scope.links = navigation;

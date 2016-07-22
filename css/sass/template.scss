@@ -32,8 +32,8 @@ h1 { font-size: 2em; }
 p { margin: 2em 0 2em 0; padding:0; line-height: 1.5em; }
 div { @include box-sizing(border-box); }
 a { color: #333; text-decoration: none; }
-iframe { border: none; margin: 0; padding:0; }
-
+iframe { position: fixed; top:0; left:0; z-index: -1; border: none; margin: 0; padding:0; width: 100%; height: 100vh; }
+strong, b { font-weight: 400; }
 
 .app {
   position: relative;
@@ -52,6 +52,13 @@ iframe { border: none; margin: 0; padding:0; }
         @include transition(margin 0.3s);
       }
     }
+
+    .navigation {
+      .company {
+        @include opacity(0);
+        @include transition(0.3s);
+      }
+    }
   }
 
   .navigation {
@@ -59,7 +66,52 @@ iframe { border: none; margin: 0; padding:0; }
     position: fixed;
     top:0; left:0;
     width: 100%;
-    padding: 1em;
+    padding: 0.75em;
+    z-index: 99;
+
+    &.solid { background: rgba(255,255,255, 0.3); }
+
+    .hamburger {
+      position: relative;
+      cursor: pointer;
+      width: 1em;
+      height: 1em;
+      float: left;
+      margin-left: 0.5em;
+      margin-top: 0.5em;
+
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25em;
+        width: 1em;
+        height: 0.15em;
+        background: black;
+        box-shadow:
+        0 0.25em 0 0 black,
+        0 0.5em 0 0 black;
+      }
+    }
+    .company {
+      @include opacity(1);
+      @include transition(0.3s);
+
+      color: sienna;
+
+      display: inline-block;
+      margin-top: 0.5em;
+      margin-left: 0.75em;
+    }
+  }
+
+
+  .scrolling-container {
+    padding: 2em;
+    margin-top: 30em;
+    width: 100%;
+    background: white;
   }
 
   article.section {
@@ -67,12 +119,30 @@ iframe { border: none; margin: 0; padding:0; }
     @include transition(margin 0.3s);
     @include box-sizing(border-box);
 
-
     &.header {
-      //background: url('../assets/image/headerAbout.png');
-      background: sienna !important;
-      color: white;
       height: 300px;
+      position: relative;
+      overflow: hidden;
+      //background: -webkit-radial-gradient(60% 55%, closest-corner, brown, sienna, white) !important; /* Safari 5.1 to 6.0 */
+      //background: -o-radial-gradient(60% 55%, closest-corner, brown, sienna, white) !important; /* For Opera 11.6 to 12.0 */
+      //background: -moz-radial-gradient(60% 55%, closest-corner, brown, sienna, white) !important; /* For Firefox 3.6 to 15 */
+      color: white;
+      background: transparent !important;
+
+      .background-mask {
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        z-index: -1;
+
+        width: 100%;
+        height: 200vh;
+        background: -webkit-radial-gradient(closest-corner at 70% 95%, rgba(160, 82, 45, 0.3), rgba(160, 82, 45, 0.5), rgba(160, 82, 45, 1));
+        background: -moz-radial-gradient(closest-corner at 60% 55%, rgba(160, 82, 45, 0.3), rgba(160, 82, 45, 0.5), rgba(160, 82, 45, 1));
+        background: radial-gradient(closest-corner at 60% 55%, rgba(160, 82, 45, 0.3), rgba(160, 82, 45, 0.5), rgba(160, 82, 45, 1));
+      }
+
 
       .vertical-center {
         margin-top: 50px;
@@ -130,27 +200,6 @@ button, .button {
   }
 }
 
-.hamburger {
-  position: relative;
-  cursor: pointer;
-  width: 1em;
-  height: 1em;
-  float: left;
-  padding-left: 1.25em;
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.25em;
-    width: 1em;
-    height: 0.15em;
-    background: black;
-    box-shadow:
-    0 0.25em 0 0 black,
-    0 0.5em 0 0 black;
-  }
-}
-
 .menu {
   @include transition(width 0.5s);
   position: fixed;
@@ -161,6 +210,15 @@ button, .button {
   left:0;
   top: 0;
   overflow: hidden;
+
+  img.logo {
+    width: 192px;
+    padding: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
 
   &.collapsed {
     @include transition(width 0.5s);
