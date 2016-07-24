@@ -6,11 +6,11 @@
 .col-9  { box-sizing: border-box; float: left; width: 75%;  }
 .col-12 { box-sizing: border-box; float: left; width: 100%; }
 
-.offset-content { z-index: 1000; position: relative; overflow: hidden; border-radius: 3px; width: 100%; max-width: 500px;  margin: 1em 3em;}
+.offset-content { z-index: 1000; position: relative; overflow: hidden; border-radius: 3px; width: 100%; max-width: 500px;  margin: 1em auto;}
 
 .offset-content .donation-box { background: #eee; text-align: center; }
 
-.offset-content .donation-box .banner { font-weight: 500; font-size: 1.25em; background: #020553; color: white; padding: 1em 2em; }
+.offset-content .donation-box .banner { font-weight: 500; font-size: 1.25em; background: rgba(160, 82, 45, 1); color: white; padding: 1em 2em; }
 
 .donation-box .content-box { padding: 1.5em; -webkit-transition: max-height 1s;  -moz-transition: max-height 1s;  -ms-transition: max-height 1s;  -o-transition: max-height 1s;  transition: max-height 1s;  }
 .donation-box .content-box { -webkit-transition: max-height 1s;  -moz-transition: max-height 1s;  -ms-transition: max-height 1s;  -o-transition: max-height 1s;  transition: max-height 1s;   }
@@ -44,8 +44,8 @@
 .donation-box .content-box .screen.followup ul.social-interactions li { display: inline-block; }
 
 
-.donation-box .content-box button       {     height: 3.5em; -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s;font-weight: 500; letter-spacing: 1px; color: white; margin-top: 1.75em; background: #252a8c; font-size: 1em; cursor: pointer; width: calc(100% - 1em); padding: 1em 2em; text-align: center; outline: none; box-sizing: border-box; border: none; border-radius: 3px; }
-.donation-box .content-box button:hover { -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s; background: #03097c; }
+.donation-box .content-box button       {     height: 3.5em; -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s;font-weight: 500; letter-spacing: 1px; color: white; margin-top: 1.75em; background: rgba(160, 82, 45, 1); font-size: 1em; cursor: pointer; width: calc(100% - 1em); padding: 1em 2em; text-align: center; outline: none; box-sizing: border-box; border: none; border-radius: 3px; }
+.donation-box .content-box button:hover { -webkit-transition: background 0.3s;  -moz-transition: background 0.3s;  -ms-transition: background 0.3s;  -o-transition: background 0.3s;  transition: background 0.3s; background: rgba(160, 82, 45, 0.8); }
 .donation-box .content-box button.hide  { -webkit-transition: height 0.3s;  -moz-transition: height 0.3s;  -ms-transition: height 0.3s;  -o-transition: height 0.3s;  transition: height 0.3s; height: 0; }
 
 

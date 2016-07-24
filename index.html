@@ -12,7 +12,7 @@
     <base href="/">
 
 </head>
-<body  ng-controller="NavigationController">
+<body ng-class="{ 'scroll-past': scrollPast }" ng-controller="NavigationController">
     <div class="menu" ng-class="{ 'collapsed': navigation.toggled }">
         <img src="assets/image/logo2.png" class="logo" />
         <ul>
@@ -26,10 +26,121 @@
             <div class="hamburger" ng-click="toggleNavigation()"></div>
             <div class="company">JAVACUP</div>
 
-            <button class="right">Donate</button>
+            <button class="right" ng-click="invokeDonation();">Donate</button>
         </div>
 
         <div ng-view></div>
+    </div>
+
+    <div ng-controller="DonationController" class="modal" ng-class="{ 'active': donationInvoked }">
+        <div class="close" ng-click="closeDonation()">
+            &times;
+        </div>
+
+
+        <!--Facebook SDK-->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=914513281992913";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="section">
+
+            <div class="offset-content">
+                <div class="donation-box">
+                    <div class="banner">
+                        <h1>Donate</h1>
+                    </div>
+
+                    <div class="content-box">
+                        <div class="error-box collapse" ng-class="{ 'collapse': !error }">
+                            <span ng-show="error">{{ error }}</span>
+                        </div>
+
+                        <div class="steps" ng-show="mode !== 'FOLLOWUP'">STEP <span>{{ progressData[mode].index }}</span> of 3</div>
+
+
+                        <h4 ng-show="mode === 'FOLLOWUP'" style="text-transform: uppercase;">Thank You!</h4>
+                        <h5 ng-show="mode === 'FOLLOWUP'" style="font-weight: 400; text-transform: uppercase; font-size: 1em;">Your Donation has been received</h5>
+                        <p>{{ progressData[mode].excerpt }}</p>
+
+                        <div class="screen-box">
+                            <div class="screen donation clearfix" ng-hide="mode !== 'DONATION'" ng-class="{ 'show': mode === 'DONATION' }">
+                                <div class="col-4" ng-click="applyDonation();" ng-repeat="donation in donationAmounts">
+                                    <div class="pill button" ng-click="applyDonation(donation);">
+                                        ${{ donation }}
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <input class="pill" name="donation-box" ng-model="donation" placeholder="Other Amount" />
+                                </div>
+                            </div>
+
+                            <div class="screen payment clearfix" ng-show="mode === 'PAYMENT'" ng-class="{ 'show': mode === 'PAYMENT' }">
+                                <form name="paymentForm">
+                                    <input name="name" class="pill" placeholder="Name" ng-model="userInfo.name">
+                                    <input name="number" class="pill" placeholder="Credit Card" data-inputmask="'keepStatic': true, 'mask': '(9{4}-9{4}-9{4}-9{4})|(9{4}-9{6}-9{5})', 'placeholder': '', 'showMaskOnHover': false, 'skipOptionalPartCharacter': ' '">
+                                    <div class="col-6">
+                                        <select name="exp_month" class="pill" placeholder="Month">
+                                            <option value="" selected="selected">Month</option>
+                                            <option value="01">01 - January </option>
+                                            <option value="02">02 - February</option>
+                                            <option value="03">03 - March</option>
+                                            <option value="04">04 - April</option>
+                                            <option value="05">05 - May</option>
+                                            <option value="06">06 - June</option>
+                                            <option value="07">07 - July</option>
+                                            <option value="08">08 - August</option>
+                                            <option value="09">09 - September</option>
+                                            <option value="10">10 - October</option>
+                                            <option value="11">11 - November</option>
+                                            <option value="12">12 - December</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-3"><input name="exp_year" class="pill" placeholder="Year" data-placeholder="" data-inputmask="'mask': '9999', 'placeholder': ''" ></div>
+                                    <div class="col-3"><input name="cvc" class="pill" placeholder="CVV"  data-placeholder="" data-inputmask="'mask': '9999', 'placeholder': ''" ></div>
+
+                                    <div class="col-12 terms">
+                                        By clicking donate, you agree to our Terms of Service and you acknowledge that you are making a recurring contribution to Johnson Weld, and that the amount selected will be charged to your credit card immediately and on this date every month during the campaign.
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="screen followup clearfix" ng-show="mode === 'FOLLOWUP'" ng-class="{ 'show': mode === 'FOLLOWUP' }">
+
+                                <ul class="social-interactions">
+                                    <li class="col-4">
+                                        <div class="fb-share-button" data-href="https://www.facebook.com/govgaryjohnson" data-layout="box_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fgovgaryjohnson&amp;src=sdkpreparse">Share</a></div>
+                                    </li>
+                                    <li class="col-4">
+                                        <div style="border: 1px solid #ccc; border-radius: 2px; width: 60px; margin: 0 auto; background: white;font-weight: 500; padding: 5px; margin-bottom: 10px;">2.4K</div>
+                                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://johnsonweld.com/donate/" data-lang="en" data-count="vertical">Tweet</a>
+                                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                                    </li>
+                                    <li class="col-4">
+                                        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><div class="g-plusone" data-href="https://plus.google.com/+GovGaryJohnson/posts" data-size="tall" ></div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <button ng-click="resume();" ng-show="mode !== 'FOLLOWUP'" ng-class="{ 'hide': mode === 'FOLLOWUP' }">
+                            {{ progressData[mode].button }}
+                            <span ng-if="mode === 'PAYMENT'"> {{ donation | currency }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <!--Angular-->
@@ -45,10 +156,10 @@
     <script type="text/javascript" src="js/main.js"></script>
 
     <!--Payment Processing-->
-    <!--<script type="text/javascript" src="https://js.stripe.com/v2/"></script>-->
-    <!--<script>-->
-        <!--Stripe.setPublishableKey('pk_test_ra0kwVD2DRCJszaGFIbVWyPM');-->
-    <!--</script>-->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>
+        Stripe.setPublishableKey('pk_test_ra0kwVD2DRCJszaGFIbVWyPM');
+    </script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

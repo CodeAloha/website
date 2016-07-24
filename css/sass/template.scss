@@ -8,6 +8,28 @@ body {
   color: #333;
   overflow-x: hidden;
 
+  &.scroll-past {
+    .app {
+      .navigation {
+        @include transition(0.3s background);
+        background: rgba(230,230,230, 0.1);
+        .company {
+          color: sienna;
+          @include transition(0.3s opacity, 0.3s color);
+        }
+        .hamburger {
+          &:before {
+            @include transition(all 0.3s);
+
+            background: sienna;
+            box-shadow:
+            0 0.25em 0 0 sienna,
+            0 0.5em 0 0 sienna;
+          }
+        }
+      }
+    }
+  }
 }
 
 input, select, textarea {
@@ -32,8 +54,34 @@ h1 { font-size: 2em; }
 p { margin: 2em 0 2em 0; padding:0; line-height: 1.5em; }
 div { @include box-sizing(border-box); }
 a { color: #333; text-decoration: none; }
-iframe { position: fixed; top:0; left:0; z-index: -1; border: none; margin: 0; padding:0; width: 100%; height: 100vh; }
 strong, b { font-weight: 400; }
+
+.modal {
+  @include transition(opacity 0.3s);
+  @include opacity(0);
+  position: fixed;
+  background: rgba(0,0,0, 0.8);
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: -1;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0.75em;
+    font-size: 2.5em;
+    color: white;
+    cursor: pointer;
+  }
+
+  &.active {
+    @include transition(opacity 0.3s);
+    @include opacity(1);
+    z-index: 999;
+  }
+}
 
 .app {
   position: relative;
@@ -41,6 +89,11 @@ strong, b { font-weight: 400; }
   left:0;
   top: 0;
   @include transition(left 0.5s);
+
+  .home {
+
+    iframe { position: fixed; top:0; left:0; z-index: -1; border: none; margin: 0; padding:0; width: 100%; height: 100vh; }
+  }
 
   &.collapsed {
     left: 15em;
@@ -54,9 +107,11 @@ strong, b { font-weight: 400; }
     }
 
     .navigation {
+      background: rgba(255,255,255,0);
+      @include transition(0.3 background);
       .company {
         @include opacity(0);
-        @include transition(0.3s);
+        @include transition(0.3s opacity, 0.3s color);
       }
     }
   }
@@ -82,23 +137,24 @@ strong, b { font-weight: 400; }
 
 
       &:before {
+        @include transition(all 0.3s);
         content: "";
         position: absolute;
         left: 0;
         top: 0.25em;
         width: 1em;
         height: 0.15em;
-        background: black;
+        background: white;
         box-shadow:
-        0 0.25em 0 0 black,
-        0 0.5em 0 0 black;
+        0 0.25em 0 0 white,
+        0 0.5em 0 0 white;
       }
     }
     .company {
       @include opacity(1);
-      @include transition(0.3s);
+      @include transition(0.3s opacity, 0.3s color);
 
-      color: sienna;
+      color: white;
 
       display: inline-block;
       margin-top: 0.5em;
@@ -106,13 +162,6 @@ strong, b { font-weight: 400; }
     }
   }
 
-
-  .scrolling-container {
-    padding: 2em;
-    margin-top: 30em;
-    width: 100%;
-    background: white;
-  }
 
   article.section {
     width: 100%;

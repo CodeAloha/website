@@ -35,15 +35,6 @@ var app = angular.module('websiteApp',['ngRoute','ngAnimate'])
             $locationProvider.html5Mode(true);
         }]);
 
-$(window).on('scroll', _.throttle(parallax, 10));
-
-function parallax() {
-    var scroll = $(window).scrollTop();
-    $('.header .background-mask').css({
-        top: -(scroll * 2)
-    });
-}
-
 app.controller('NavigationController', function NavigationController($scope, $timeout, $location) {
 
     $scope.links = navigation;
@@ -70,7 +61,31 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
             scatteredAnimation();
         }
+    };
 
+    $(window).on('scroll', _.throttle(parallax, 10));
+
+    function parallax() {
+        var scroll = $(window).scrollTop();
+        $('.header .background-mask').css({
+            top: -(scroll * 2)
+        });
+
+        console.log(scroll);
+        if (scroll > 300) {
+            $scope.scrollPast = true;
+        } else {
+            $scope.scrollPast = false;
+        }
+        $timeout(_.noop);
+    }
+
+
+    $scope.invokeDonation = function invokeDonation() {
+        $scope.donationInvoked = true;
+    };
+    $scope.closeDonation = function closeDonation() {
+        $scope.donationInvoked = false;
     };
 
     $scope.redirectTo = function redirectTo(link) {
