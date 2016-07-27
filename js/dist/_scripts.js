@@ -84,7 +84,6 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
     };
 
-    setInterval( function() { console.log($scope.donationRunning) }, 100 );
 
     $scope.redirectTo = function redirectTo(link) {
         $location.url(link);
