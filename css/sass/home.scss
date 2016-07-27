@@ -1,0 +1,17 @@
+.home {
+    .loading-container {
+        position: fixed;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background: white;
+        z-index: 10;
+        @include opacity(1);
+        @include transition(opacity 0.3s);
+        &.hide {
+            @include opacity(0);
+            @include transition(opacity 0.3s);
+        }
+    }
+}

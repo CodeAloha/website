@@ -32,7 +32,7 @@
         <div ng-view></div>
     </div>
 
-    <div ng-controller="DonationController" class="modal" ng-class="{ 'active': donationInvoked }">
+    <div ng-if="donationRunning" ng-controller="DonationController" class="modal" ng-class="{ 'active': donationInvoked }">
         <div class="close" ng-click="closeDonation()">
             &times;
         </div>

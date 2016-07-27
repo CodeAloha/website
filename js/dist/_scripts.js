@@ -67,26 +67,24 @@ app.controller('NavigationController', function NavigationController($scope, $ti
 
     function parallax() {
         var scroll = $(window).scrollTop();
-        $('.header .background-mask').css({
-            top: -(scroll * 2)
-        });
+        $('.header .background-mask').css({ top: -(scroll * 2) });
 
-        console.log(scroll);
-        if (scroll > 300) {
-            $scope.scrollPast = true;
-        } else {
-            $scope.scrollPast = false;
-        }
+        if (scroll > 300) { $scope.scrollPast = true; }
+        else { $scope.scrollPast = false; }
         $timeout(_.noop);
     }
 
-
     $scope.invokeDonation = function invokeDonation() {
-        $scope.donationInvoked = true;
+        $scope.donationRunning = true;
+        $timeout(function() { $scope.donationInvoked = true; }, 10);
     };
     $scope.closeDonation = function closeDonation() {
         $scope.donationInvoked = false;
+        $timeout(function() { $scope.donationRunning = false; }, 300);
+
     };
+
+    setInterval( function() { console.log($scope.donationRunning) }, 100 );
 
     $scope.redirectTo = function redirectTo(link) {
         $location.url(link);
